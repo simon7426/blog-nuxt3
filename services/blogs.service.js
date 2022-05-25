@@ -6,6 +6,12 @@ class Blog {
       return response.data
     })
   }
+
+  getSingleBlog(blogId) {
+    return api.get(`/blogs/${blogId}`).then((response)=>{
+      return response.data
+    })
+  }
 }
 
 export default new Blog();
