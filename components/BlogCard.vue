@@ -36,6 +36,7 @@
         </a>
       </div>
       <AuthorCard />
+      <AddCommentCard />
       <CommentListCard v-if="post.comments" :comments="post.comments" />
     </div>
   </div>
@@ -44,8 +45,9 @@
 <script>
 import AuthorCard from "./AuthorCard.vue";
 import CommentListCard from "./CommentListCard.vue";
+import AddCommentCard from "./AddCommentCard.vue";
 export default {
-    components: { AuthorCard, CommentListCard },
+    components: { AuthorCard, CommentListCard, AddCommentCard },
     props: {
         post: {
             type: Object,
