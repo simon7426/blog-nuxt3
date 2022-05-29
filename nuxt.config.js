@@ -1,10 +1,12 @@
+import blogsService from "./services/blogs.service"
+
 const createSitemapRoutes = async () => {
   const routes = []
-  const { $content } = require('@nuxt/content')
-  const posts = await $content('posts').fetch()
+  const contents = await blogsService.getAllBlogs()
+  const posts = contents.data.data
 
   for (const post of posts) {
-    routes.push(post.slug)
+    routes.push(post.id)
   }
 
   return routes
