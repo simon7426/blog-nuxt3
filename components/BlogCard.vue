@@ -36,8 +36,8 @@
         </a>
       </div>
       <AuthorCard />
-      <AddCommentCard />
-      <CommentListCard v-if="post.comments" :comments="post.comments" />
+      <AddCommentCard :blogid="post.id" @comment-added="postComment"/>
+      <CommentListCard v-if="getComments" :comments="getComments" />
     </div>
   </div>
 </template>
@@ -54,6 +54,21 @@ export default {
             required: true,
             default: () => { },
         },
+    },
+    data() {
+      return {
+        comments: this.post.comments
+      }
+    },
+    computed: {
+      getComments() {
+        return this.comments
+      }
+    },
+    methods: {
+      postComment(ret) {
+        this.comments = ret.data.data.comments
+      }
     }
 }
 </script>

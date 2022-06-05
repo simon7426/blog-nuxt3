@@ -1,4 +1,4 @@
-import blogsService from "./services/blogs.service"
+import blogsService from './services/blogs.service'
 
 const createSitemapRoutes = async () => {
   const routes = []
@@ -13,7 +13,6 @@ const createSitemapRoutes = async () => {
 }
 
 const siteUrl = process.env.BASE_URL || 'http://localhost:3000'
-
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -32,9 +31,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/assets/css/main.css'
-  ],
+  css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -52,11 +49,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/moment',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-  ],
+  modules: ['@nuxtjs/moment', '@nuxtjs/sitemap', '@nuxtjs/robots'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -76,7 +69,7 @@ export default {
     {
       UserAgent: '*',
       Allow: '/',
-      Sitemap: `${siteUrl}/sitemap.xml`
-    }
-  ]
+      Sitemap: `${siteUrl}/sitemap.xml`,
+    },
+  ],
 }
