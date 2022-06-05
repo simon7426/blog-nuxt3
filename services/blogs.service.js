@@ -1,14 +1,14 @@
 import api from './api'
 
 class Blog {
-  getAllBlogs() {
-    return api.get('/blogs').then((response) => {
+  async getAllBlogs() {
+    return await api.get('/blogs').then((response) => {
       return response.data
     })
   }
 
-  getSingleBlog(blogId) {
-    return api.get(`/blogs/${blogId}`).then((response)=>{
+  async getSingleBlog(blogId) {
+    return await api.get(`/blogs/${blogId}`).then((response)=>{
       return response.data
     })
   }

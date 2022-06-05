@@ -36,7 +36,8 @@
         </a>
       </div>
       <AuthorCard />
-      <CommentListCard v-if="post.comments" :comments="post.comments" />
+      <AddCommentCard :blogid="post.id" @comment-added="postComment"/>
+      <CommentListCard v-if="getComments" :comments="getComments" />
     </div>
   </div>
 </template>
@@ -44,14 +45,30 @@
 <script>
 import AuthorCard from "./AuthorCard.vue";
 import CommentListCard from "./CommentListCard.vue";
+import AddCommentCard from "./AddCommentCard.vue";
 export default {
-    components: { AuthorCard, CommentListCard },
+    components: { AuthorCard, CommentListCard, AddCommentCard },
     props: {
         post: {
             type: Object,
             required: true,
             default: () => { },
         },
+    },
+    data() {
+      return {
+        comments: this.post.comments
+      }
+    },
+    computed: {
+      getComments() {
+        return this.comments
+      }
+    },
+    methods: {
+      postComment(ret) {
+        this.comments = ret.data.data.comments
+      }
     }
 }
 </script>
